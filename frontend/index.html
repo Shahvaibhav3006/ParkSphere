@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ParkSphere India — Smart Parking Management</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="auth-shell">
+  <div class="auth-card">
+    <div class="brand">
+      <div class="brand-mark">P</div>
+      <h1>ParkSphere India</h1>
+    </div>
+    <p class="tagline">Smart Parking. Smarter Cities.</p>
+
+    <div id="errorBanner" class="error-banner"></div>
+
+    <!-- LOGIN FORM -->
+    <form id="loginForm">
+      <div class="field">
+        <label>Email</label>
+        <input type="email" id="loginEmail" required placeholder="you@example.com">
+      </div>
+      <div class="field">
+        <label>Password</label>
+        <input type="password" id="loginPassword" required placeholder="••••••••">
+      </div>
+      <button type="submit" class="btn btn-primary">Log In</button>
+    </form>
+
+    <!-- REGISTER FORM -->
+    <form id="registerForm" style="display:none">
+      <div class="field">
+        <label>Full Name</label>
+        <input type="text" id="regName" required placeholder="Neha Verma">
+      </div>
+      <div class="field">
+        <label>Email</label>
+        <input type="email" id="regEmail" required placeholder="you@example.com">
+      </div>
+      <div class="field">
+        <label>Vehicle Number (optional)</label>
+        <input type="text" id="regVehicle" placeholder="GJ01AB1234">
+      </div>
+      <div class="field">
+        <label>Password</label>
+        <input type="password" id="regPassword" required minlength="6" placeholder="Min. 6 characters">
+      </div>
+      <button type="submit" class="btn btn-primary">Create Account</button>
+    </form>
+
+    <div class="auth-toggle">
+      <span id="toggleToRegister">New here? <a>Create an account</a></span>
+      <span id="toggleToLogin" style="display:none">Already registered? <a>Log in</a></span>
+    </div>
+
+    <div class="demo-hint">
+      <b>Demo logins</b> (password shown after role)<br>
+      Super Admin — superadmin@parksphere.in / admin123<br>
+      Property Manager — manager@parksphere.in / manager123<br>
+      Security Guard — guard@parksphere.in / guard123<br>
+      Customer — user@parksphere.in / user123
+    </div>
+  </div>
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/auth.js"></script>
+</body>
+</html>

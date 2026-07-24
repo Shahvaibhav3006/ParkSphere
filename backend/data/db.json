@@ -1,0 +1,806 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Aarav Shah",
+      "email": "superadmin@parksphere.in",
+      "password": "$2a$08$Ahz2ImIjy55XxihBMU7XseKpOmlwd7qB1h90M9nMbKoqyCqdzhIxS",
+      "role": "super_admin",
+      "propertyId": null,
+      "vehicleNumber": null
+    },
+    {
+      "id": 2,
+      "name": "Priya Mehta",
+      "email": "manager@parksphere.in",
+      "password": "$2a$08$cUc4poAoVKvk58tdwyisNO4mtLUbWChiQKnVQM60s6S59Fcc5.L0.",
+      "role": "property_manager",
+      "propertyId": 1,
+      "vehicleNumber": null
+    },
+    {
+      "id": 3,
+      "name": "Rohan Patel",
+      "email": "guard@parksphere.in",
+      "password": "$2a$08$Y3soEUpAi/sSBCoqkF/YHOhg0wzpT/x1gUGq2uOQKUGy2yrTJ.gFC",
+      "role": "security_guard",
+      "propertyId": 1,
+      "vehicleNumber": null
+    },
+    {
+      "id": 4,
+      "name": "Neha Verma",
+      "email": "user@parksphere.in",
+      "password": "$2a$08$LZ2RwjVbKW9G7nQLrjs0ROo0daJkxz71Mah5DBAP73R8hjXF0VCN6",
+      "role": "customer",
+      "propertyId": null,
+      "vehicleNumber": "GJ01AB1234"
+    }
+  ],
+  "properties": [
+    {
+      "id": 1,
+      "name": "Emerald Heights Society",
+      "type": "Residential",
+      "city": "Ahmedabad",
+      "floors": 2,
+      "slotsPerFloor": 10
+    },
+    {
+      "id": 2,
+      "name": "Skyline Mall",
+      "type": "Shopping Mall",
+      "city": "Ahmedabad",
+      "floors": 3,
+      "slotsPerFloor": 14
+    },
+    {
+      "id": 3,
+      "name": "CityCare Hospital",
+      "type": "Hospital",
+      "city": "Ahmedabad",
+      "floors": 1,
+      "slotsPerFloor": 12
+    }
+  ],
+  "slots": [
+    {
+      "id": 1,
+      "propertyId": 1,
+      "floor": 1,
+      "code": "F1-01",
+      "status": "occupied",
+      "type": "standard",
+      "pricePerHour": 15
+    },
+    {
+      "id": 2,
+      "propertyId": 1,
+      "floor": 1,
+      "code": "F1-02",
+      "status": "available",
+      "type": "standard",
+      "pricePerHour": 15
+    },
+    {
+      "id": 3,
+      "propertyId": 1,
+      "floor": 1,
+      "code": "F1-03",
+      "status": "available",
+      "type": "standard",
+      "pricePerHour": 15
+    },
+    {
+      "id": 4,
+      "propertyId": 1,
+      "floor": 1,
+      "code": "F1-04",
+      "status": "occupied",
+      "type": "standard",
+      "pricePerHour": 15
+    },
+    {
+      "id": 5,
+      "propertyId": 1,
+      "floor": 1,
+      "code": "F1-05",
+      "status": "available",
+      "type": "accessible",
+      "pricePerHour": 15
+    },
+    {
+      "id": 6,
+      "propertyId": 1,
+      "floor": 1,
+      "code": "F1-06",
+      "status": "available",
+      "type": "ev",
+      "pricePerHour": 15
+    },
+    {
+      "id": 7,
+      "propertyId": 1,
+      "floor": 1,
+      "code": "F1-07",
+      "status": "occupied",
+      "type": "standard",
+      "pricePerHour": 15
+    },
+    {
+      "id": 8,
+      "propertyId": 1,
+      "floor": 1,
+      "code": "F1-08",
+      "status": "available",
+      "type": "standard",
+      "pricePerHour": 15
+    },
+    {
+      "id": 9,
+      "propertyId": 1,
+      "floor": 1,
+      "code": "F1-09",
+      "status": "available",
+      "type": "standard",
+      "pricePerHour": 15
+    },
+    {
+      "id": 10,
+      "propertyId": 1,
+      "floor": 1,
+      "code": "F1-10",
+      "status": "occupied",
+      "type": "accessible",
+      "pricePerHour": 15
+    },
+    {
+      "id": 11,
+      "propertyId": 1,
+      "floor": 2,
+      "code": "F2-01",
+      "status": "available",
+      "type": "standard",
+      "pricePerHour": 15
+    },
+    {
+      "id": 12,
+      "propertyId": 1,
+      "floor": 2,
+      "code": "F2-02",
+      "status": "occupied",
+      "type": "standard",
+      "pricePerHour": 15
+    },
+    {
+      "id": 13,
+      "propertyId": 1,
+      "floor": 2,
+      "code": "F2-03",
+      "status": "available",
+      "type": "standard",
+      "pricePerHour": 15
+    },
+    {
+      "id": 14,
+      "propertyId": 1,
+      "floor": 2,
+      "code": "F2-04",
+      "status": "available",
+      "type": "standard",
+      "pricePerHour": 15
+    },
+    {
+      "id": 15,
+      "propertyId": 1,
+      "floor": 2,
+      "code": "F2-05",
+      "status": "occupied",
+      "type": "accessible",
+      "pricePerHour": 15
+    },
+    {
+      "id": 16,
+      "propertyId": 1,
+      "floor": 2,
+      "code": "F2-06",
+      "status": "available",
+      "type": "ev",
+      "pricePerHour": 15
+    },
+    {
+      "id": 17,
+      "propertyId": 1,
+      "floor": 2,
+      "code": "F2-07",
+      "status": "available",
+      "type": "standard",
+      "pricePerHour": 15
+    },
+    {
+      "id": 18,
+      "propertyId": 1,
+      "floor": 2,
+      "code": "F2-08",
+      "status": "occupied",
+      "type": "standard",
+      "pricePerHour": 15
+    },
+    {
+      "id": 19,
+      "propertyId": 1,
+      "floor": 2,
+      "code": "F2-09",
+      "status": "available",
+      "type": "standard",
+      "pricePerHour": 15
+    },
+    {
+      "id": 20,
+      "propertyId": 1,
+      "floor": 2,
+      "code": "F2-10",
+      "status": "available",
+      "type": "accessible",
+      "pricePerHour": 15
+    },
+    {
+      "id": 21,
+      "propertyId": 2,
+      "floor": 1,
+      "code": "F1-01",
+      "status": "available",
+      "type": "standard",
+      "pricePerHour": 30
+    },
+    {
+      "id": 22,
+      "propertyId": 2,
+      "floor": 1,
+      "code": "F1-02",
+      "status": "available",
+      "type": "standard",
+      "pricePerHour": 30
+    },
+    {
+      "id": 23,
+      "propertyId": 2,
+      "floor": 1,
+      "code": "F1-03",
+      "status": "occupied",
+      "type": "standard",
+      "pricePerHour": 30
+    },
+    {
+      "id": 24,
+      "propertyId": 2,
+      "floor": 1,
+      "code": "F1-04",
+      "status": "available",
+      "type": "standard",
+      "pricePerHour": 30
+    },
+    {
+      "id": 25,
+      "propertyId": 2,
+      "floor": 1,
+      "code": "F1-05",
+      "status": "reserved",
+      "type": "accessible",
+      "pricePerHour": 30
+    },
+    {
+      "id": 26,
+      "propertyId": 2,
+      "floor": 1,
+      "code": "F1-06",
+      "status": "occupied",
+      "type": "ev",
+      "pricePerHour": 30
+    },
+    {
+      "id": 27,
+      "propertyId": 2,
+      "floor": 1,
+      "code": "F1-07",
+      "status": "available",
+      "type": "standard",
+      "pricePerHour": 30
+    },
+    {
+      "id": 28,
+      "propertyId": 2,
+      "floor": 1,
+      "code": "F1-08",
+      "status": "available",
+      "type": "standard",
+      "pricePerHour": 30
+    },
+    {
+      "id": 29,
+      "propertyId": 2,
+      "floor": 1,
+      "code": "F1-09",
+      "status": "occupied",
+      "type": "standard",
+      "pricePerHour": 30
+    },
+    {
+      "id": 30,
+      "propertyId": 2,
+      "floor": 1,
+      "code": "F1-10",
+      "status": "available",
+      "type": "accessible",
+      "pricePerHour": 30
+    },
+    {
+      "id": 31,
+      "propertyId": 2,
+      "floor": 1,
+      "code": "F1-11",
+      "status": "available",
+      "type": "standard",
+      "pricePerHour": 30
+    },
+    {
+      "id": 32,
+      "propertyId": 2,
+      "floor": 1,
+      "code": "F1-12",
+      "status": "occupied",
+      "type": "ev",
+      "pricePerHour": 30
+    },
+    {
+      "id": 33,
+      "propertyId": 2,
+      "floor": 1,
+      "code": "F1-13",
+      "status": "available",
+      "type": "standard",
+      "pricePerHour": 30
+    },
+    {
+      "id": 34,
+      "propertyId": 2,
+      "floor": 1,
+      "code": "F1-14",
+      "status": "available",
+      "type": "standard",
+      "pricePerHour": 30
+    },
+    {
+      "id": 35,
+      "propertyId": 2,
+      "floor": 2,
+      "code": "F2-01",
+      "status": "available",
+      "type": "standard",
+      "pricePerHour": 30
+    },
+    {
+      "id": 36,
+      "propertyId": 2,
+      "floor": 2,
+      "code": "F2-02",
+      "status": "occupied",
+      "type": "standard",
+      "pricePerHour": 30
+    },
+    {
+      "id": 37,
+      "propertyId": 2,
+      "floor": 2,
+      "code": "F2-03",
+      "status": "available",
+      "type": "standard",
+      "pricePerHour": 30
+    },
+    {
+      "id": 38,
+      "propertyId": 2,
+      "floor": 2,
+      "code": "F2-04",
+      "status": "available",
+      "type": "standard",
+      "pricePerHour": 30
+    },
+    {
+      "id": 39,
+      "propertyId": 2,
+      "floor": 2,
+      "code": "F2-05",
+      "status": "occupied",
+      "type": "accessible",
+      "pricePerHour": 30
+    },
+    {
+      "id": 40,
+      "propertyId": 2,
+      "floor": 2,
+      "code": "F2-06",
+      "status": "available",
+      "type": "ev",
+      "pricePerHour": 30
+    },
+    {
+      "id": 41,
+      "propertyId": 2,
+      "floor": 2,
+      "code": "F2-07",
+      "status": "available",
+      "type": "standard",
+      "pricePerHour": 30
+    },
+    {
+      "id": 42,
+      "propertyId": 2,
+      "floor": 2,
+      "code": "F2-08",
+      "status": "occupied",
+      "type": "standard",
+      "pricePerHour": 30
+    },
+    {
+      "id": 43,
+      "propertyId": 2,
+      "floor": 2,
+      "code": "F2-09",
+      "status": "available",
+      "type": "standard",
+      "pricePerHour": 30
+    },
+    {
+      "id": 44,
+      "propertyId": 2,
+      "floor": 2,
+      "code": "F2-10",
+      "status": "available",
+      "type": "accessible",
+      "pricePerHour": 30
+    },
+    {
+      "id": 45,
+      "propertyId": 2,
+      "floor": 2,
+      "code": "F2-11",
+      "status": "occupied",
+      "type": "standard",
+      "pricePerHour": 30
+    },
+    {
+      "id": 46,
+      "propertyId": 2,
+      "floor": 2,
+      "code": "F2-12",
+      "status": "available",
+      "type": "ev",
+      "pricePerHour": 30
+    },
+    {
+      "id": 47,
+      "propertyId": 2,
+      "floor": 2,
+      "code": "F2-13",
+      "status": "available",
+      "type": "standard",
+      "pricePerHour": 30
+    },
+    {
+      "id": 48,
+      "propertyId": 2,
+      "floor": 2,
+      "code": "F2-14",
+      "status": "occupied",
+      "type": "standard",
+      "pricePerHour": 30
+    },
+    {
+      "id": 49,
+      "propertyId": 2,
+      "floor": 3,
+      "code": "F3-01",
+      "status": "occupied",
+      "type": "standard",
+      "pricePerHour": 30
+    },
+    {
+      "id": 50,
+      "propertyId": 2,
+      "floor": 3,
+      "code": "F3-02",
+      "status": "available",
+      "type": "standard",
+      "pricePerHour": 30
+    },
+    {
+      "id": 51,
+      "propertyId": 2,
+      "floor": 3,
+      "code": "F3-03",
+      "status": "available",
+      "type": "standard",
+      "pricePerHour": 30
+    },
+    {
+      "id": 52,
+      "propertyId": 2,
+      "floor": 3,
+      "code": "F3-04",
+      "status": "occupied",
+      "type": "standard",
+      "pricePerHour": 30
+    },
+    {
+      "id": 53,
+      "propertyId": 2,
+      "floor": 3,
+      "code": "F3-05",
+      "status": "available",
+      "type": "accessible",
+      "pricePerHour": 30
+    },
+    {
+      "id": 54,
+      "propertyId": 2,
+      "floor": 3,
+      "code": "F3-06",
+      "status": "available",
+      "type": "ev",
+      "pricePerHour": 30
+    },
+    {
+      "id": 55,
+      "propertyId": 2,
+      "floor": 3,
+      "code": "F3-07",
+      "status": "occupied",
+      "type": "standard",
+      "pricePerHour": 30
+    },
+    {
+      "id": 56,
+      "propertyId": 2,
+      "floor": 3,
+      "code": "F3-08",
+      "status": "available",
+      "type": "standard",
+      "pricePerHour": 30
+    },
+    {
+      "id": 57,
+      "propertyId": 2,
+      "floor": 3,
+      "code": "F3-09",
+      "status": "available",
+      "type": "standard",
+      "pricePerHour": 30
+    },
+    {
+      "id": 58,
+      "propertyId": 2,
+      "floor": 3,
+      "code": "F3-10",
+      "status": "occupied",
+      "type": "accessible",
+      "pricePerHour": 30
+    },
+    {
+      "id": 59,
+      "propertyId": 2,
+      "floor": 3,
+      "code": "F3-11",
+      "status": "available",
+      "type": "standard",
+      "pricePerHour": 30
+    },
+    {
+      "id": 60,
+      "propertyId": 2,
+      "floor": 3,
+      "code": "F3-12",
+      "status": "available",
+      "type": "ev",
+      "pricePerHour": 30
+    },
+    {
+      "id": 61,
+      "propertyId": 2,
+      "floor": 3,
+      "code": "F3-13",
+      "status": "occupied",
+      "type": "standard",
+      "pricePerHour": 30
+    },
+    {
+      "id": 62,
+      "propertyId": 2,
+      "floor": 3,
+      "code": "F3-14",
+      "status": "available",
+      "type": "standard",
+      "pricePerHour": 30
+    },
+    {
+      "id": 63,
+      "propertyId": 3,
+      "floor": 1,
+      "code": "F1-01",
+      "status": "available",
+      "type": "standard",
+      "pricePerHour": 20
+    },
+    {
+      "id": 64,
+      "propertyId": 3,
+      "floor": 1,
+      "code": "F1-02",
+      "status": "available",
+      "type": "standard",
+      "pricePerHour": 20
+    },
+    {
+      "id": 65,
+      "propertyId": 3,
+      "floor": 1,
+      "code": "F1-03",
+      "status": "occupied",
+      "type": "standard",
+      "pricePerHour": 20
+    },
+    {
+      "id": 66,
+      "propertyId": 3,
+      "floor": 1,
+      "code": "F1-04",
+      "status": "available",
+      "type": "standard",
+      "pricePerHour": 20
+    },
+    {
+      "id": 67,
+      "propertyId": 3,
+      "floor": 1,
+      "code": "F1-05",
+      "status": "available",
+      "type": "accessible",
+      "pricePerHour": 20
+    },
+    {
+      "id": 68,
+      "propertyId": 3,
+      "floor": 1,
+      "code": "F1-06",
+      "status": "occupied",
+      "type": "ev",
+      "pricePerHour": 20
+    },
+    {
+      "id": 69,
+      "propertyId": 3,
+      "floor": 1,
+      "code": "F1-07",
+      "status": "available",
+      "type": "standard",
+      "pricePerHour": 20
+    },
+    {
+      "id": 70,
+      "propertyId": 3,
+      "floor": 1,
+      "code": "F1-08",
+      "status": "available",
+      "type": "standard",
+      "pricePerHour": 20
+    },
+    {
+      "id": 71,
+      "propertyId": 3,
+      "floor": 1,
+      "code": "F1-09",
+      "status": "occupied",
+      "type": "standard",
+      "pricePerHour": 20
+    },
+    {
+      "id": 72,
+      "propertyId": 3,
+      "floor": 1,
+      "code": "F1-10",
+      "status": "available",
+      "type": "accessible",
+      "pricePerHour": 20
+    },
+    {
+      "id": 73,
+      "propertyId": 3,
+      "floor": 1,
+      "code": "F1-11",
+      "status": "available",
+      "type": "standard",
+      "pricePerHour": 20
+    },
+    {
+      "id": 74,
+      "propertyId": 3,
+      "floor": 1,
+      "code": "F1-12",
+      "status": "occupied",
+      "type": "ev",
+      "pricePerHour": 20
+    }
+  ],
+  "bookings": [
+    {
+      "id": 1,
+      "bookingRef": "9DBE9D14",
+      "userId": 4,
+      "propertyId": 2,
+      "slotId": 25,
+      "vehicleNumber": "GJ01AB1234",
+      "startTime": "2026-07-22T20:17",
+      "endTime": "2026-07-22T22:17",
+      "hours": 2,
+      "amount": 60,
+      "status": "confirmed",
+      "qrCode": "data:image/png;base64,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",
+      "checkedInAt": null,
+      "checkedOutAt": null,
+      "createdAt": "2026-07-22T14:18:18.469Z"
+    }
+  ],
+  "payments": [
+    {
+      "id": 1,
+      "bookingId": 1,
+      "userId": 4,
+      "orderId": "order_cc15c377b5314a",
+      "paymentId": "pay_94fbd2fa52d04c",
+      "amount": 60,
+      "status": "success",
+      "createdAt": "2026-07-22T14:18:18.483Z"
+    }
+  ],
+  "notifications": [
+    {
+      "id": 1,
+      "userId": 4,
+      "title": "Welcome to ParkSphere India",
+      "message": "Your account has been created successfully.",
+      "read": true,
+      "createdAt": "2026-07-21T19:43:01.439Z"
+    },
+    {
+      "id": 2,
+      "userId": 4,
+      "title": "Payment successful",
+      "message": "₹60 paid for booking 9DBE9D14. Your QR code is ready.",
+      "read": false,
+      "createdAt": "2026-07-22T14:18:18.483Z"
+    }
+  ],
+  "activityLogs": [
+    {
+      "id": 1,
+      "userId": 1,
+      "action": "SYSTEM_SEEDED",
+      "details": "Demo data initialized",
+      "createdAt": "2026-07-21T19:43:01.440Z"
+    },
+    {
+      "id": 2,
+      "userId": 4,
+      "action": "BOOKING_CREATED",
+      "details": "9DBE9D14 / slot F1-05",
+      "createdAt": "2026-07-22T14:18:18.469Z"
+    },
+    {
+      "id": 3,
+      "userId": 4,
+      "action": "PAYMENT_SUCCESS",
+      "details": "9DBE9D14 / ₹60",
+      "createdAt": "2026-07-22T14:18:18.483Z"
+    }
+  ]
+}
