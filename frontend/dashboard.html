@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ParkSphere India — Dashboard</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="mobile-topbar">
+  <button class="btn btn-ghost btn-sm" id="hamburgerBtn" aria-label="Open menu">☰</button>
+  <div class="brand"><div class="brand-mark">P</div><h1 style="font-size:15px">ParkSphere</h1></div>
+  <button class="btn btn-ghost btn-sm" id="mobileLogout">Log out</button>
+</div>
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="brand"><div class="brand-mark">P</div><h1>ParkSphere</h1></div>
+
+    <nav id="navList"></nav>
+
+    <div class="sidebar-footer">
+      <div class="user-chip">
+        <div class="user-avatar" id="userInitials">--</div>
+        <div class="user-meta">
+          <div class="name" id="userName">—</div>
+          <div class="role" id="userRole">—</div>
+        </div>
+      </div>
+      <button class="btn btn-ghost btn-sm btn-block" id="logoutBtn">Log Out</button>
+    </div>
+  </aside>
+
+  <main class="main">
+
+    <!-- DASHBOARD -->
+    <section class="page" id="page-dashboard">
+      <div class="page-header">
+        <div><h2>Dashboard</h2><div class="sub">Live snapshot of parking activity</div></div>
+      </div>
+      <div class="grid grid-4" id="statCards"></div>
+      <div class="section-title">Recent Activity</div>
+      <div class="card"><table id="recentActivityTable"><thead><tr><th>Action</th><th>Details</th><th>When</th></tr></thead><tbody></tbody></table></div>
+    </section>
+
+    <!-- PARKING MAP -->
+    <section class="page" id="page-map">
+      <div class="page-header">
+        <div><h2>Live Parking Map</h2><div class="sub">Color-coded real-time slot status</div></div>
+        <div class="filters">
+          <select id="mapPropertySelect"></select>
+          <select id="mapFloorSelect"></select>
+        </div>
+      </div>
+      <div class="card">
+        <div class="lot-legend">
+          <span><i style="background:#4bd699"></i>Available</span>
+          <span><i style="background:#6b7280"></i>Occupied</span>
+          <span><i style="background:#e0973a"></i>Reserved</span>
+          <span><i style="background:#8a8f98"></i>Maintenance</span>
+        </div>
+        <div class="slot-grid" id="slotGrid"></div>
+      </div>
+    </section>
+
+    <!-- BOOK PARKING -->
+    <section class="page" id="page-book">
+      <div class="page-header"><div><h2>Book Parking</h2><div class="sub">Reserve a slot in advance</div></div></div>
+      <div class="grid grid-2">
+        <div class="card">
+          <div class="field"><label>Property</label><select id="bookPropertySelect"></select></div>
+          <div class="field"><label>Floor</label><select id="bookFloorSelect"></select></div>
+          <div class="field"><label>Vehicle Number</label><input id="bookVehicle" placeholder="GJ01AB1234"></div>
+          <div class="grid grid-2">
+            <div class="field"><label>Start</label><input type="datetime-local" id="bookStart"></div>
+            <div class="field"><label>End</label><input type="datetime-local" id="bookEnd"></div>
+          </div>
+          <div class="section-title" style="margin-top:6px">Select a slot</div>
+          <div class="slot-grid" id="bookSlotGrid"></div>
+          <button class="btn btn-primary btn-block" style="margin-top:18px" id="confirmBookingBtn" disabled>Select a slot to continue</button>
+        </div>
+        <div class="card" id="bookSummaryCard">
+          <div class="empty-state"><div class="glyph">🅿️</div>Pick a property, floor, and slot to see your booking summary and price here.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MY BOOKINGS -->
+    <section class="page" id="page-bookings">
+      <div class="page-header"><div><h2>My Bookings</h2><div class="sub">Upcoming, active, and past parking sessions</div></div></div>
+      <div class="card"><table><thead><tr><th>Ref</th><th>Property</th><th>Slot</th><th>Window</th><th>Amount</th><th>Status</th><th></th></tr></thead><tbody id="bookingsTableBody"></tbody></table></div>
+    </section>
+
+    <!-- FIND MY CAR -->
+    <section class="page" id="page-findcar">
+      <div class="page-header"><div><h2>Find My Car</h2><div class="sub">Locate your vehicle instantly by number plate</div></div></div>
+      <div class="card" style="max-width:480px">
+        <div class="field"><label>Vehicle Number</label><input id="findCarInput" placeholder="GJ01AB1234"></div>
+        <button class="btn btn-primary btn-block" id="findCarBtn">Search</button>
+        <div id="findCarResult" style="margin-top:18px"></div>
+      </div>
+    </section>
+
+    <!-- PAYMENTS -->
+    <section class="page" id="page-payments">
+      <div class="page-header"><div><h2>Payment History</h2><div class="sub">All completed transactions</div></div></div>
+      <div class="card"><table><thead><tr><th>Payment ID</th><th>Booking Ref</th><th>Amount</th><th>Status</th><th>Date</th></tr></thead><tbody id="paymentsTableBody"></tbody></table></div>
+    </section>
+
+    <!-- NOTIFICATIONS -->
+    <section class="page" id="page-notifications">
+      <div class="page-header">
+        <div><h2>Notifications</h2><div class="sub">Booking, payment, and reminder alerts</div></div>
+        <button class="btn btn-ghost btn-sm" id="markAllReadBtn">Mark all as read</button>
+      </div>
+      <div id="notifList"></div>
+    </section>
+
+    <!-- SECURITY SCAN -->
+    <section class="page" id="page-scan">
+      <div class="page-header"><div><h2>Scan QR / Verify Booking</h2><div class="sub">Check vehicles in and out</div></div></div>
+      <div class="card" style="max-width:480px">
+        <div class="field"><label>Booking Reference Code</label><input id="scanRefInput" placeholder="e.g. C461CEF1" style="text-transform:uppercase"></div>
+        <button class="btn btn-primary btn-block" id="scanBtn">Scan / Verify</button>
+        <div id="scanResult" style="margin-top:18px"></div>
+      </div>
+    </section>
+
+    <!-- ORG SETUP / PROPERTIES -->
+    <section class="page" id="page-properties">
+      <div class="page-header">
+        <div><h2>Org Setup — Properties</h2><div class="sub">Manage all registered parking properties</div></div>
+        <button class="btn btn-primary btn-sm" id="addPropertyBtn">+ Add Property</button>
+      </div>
+      <div class="card"><table><thead><tr><th>Name</th><th>Type</th><th>City</th><th>Floors</th><th>Slots/Floor</th></tr></thead><tbody id="propertiesTableBody"></tbody></table></div>
+    </section>
+
+    <!-- STAFF / USERS -->
+    <section class="page" id="page-users">
+      <div class="page-header">
+        <div><h2>Staff & Users</h2><div class="sub">Manage platform accounts</div></div>
+        <button class="btn btn-primary btn-sm" id="addUserBtn">+ Add Staff User</button>
+      </div>
+      <div class="card"><table><thead><tr><th>Name</th><th>Email</th><th>Role</th><th>Property</th></tr></thead><tbody id="usersTableBody"></tbody></table></div>
+    </section>
+
+    <!-- REPORTS / ANALYTICS -->
+    <section class="page" id="page-analytics">
+      <div class="page-header">
+        <div><h2>Reports & Analytics</h2><div class="sub">Occupancy, revenue, and usage trends</div></div>
+        <select id="analyticsPropertySelect"></select>
+      </div>
+      <div class="grid grid-4" id="analyticsStatCards"></div>
+      <div class="grid grid-2" style="margin-top:16px">
+        <div class="card">
+          <div class="section-title" style="margin-top:0">Most-Used Slots</div>
+          <table><thead><tr><th>Slot</th><th>Bookings</th></tr></thead><tbody id="mostUsedTableBody"></tbody></table>
+        </div>
+        <div class="card">
+          <div class="section-title" style="margin-top:0">Peak Booking Hour</div>
+          <div id="peakHourDisplay" style="font-family:var(--font-display);font-size:36px;color:var(--paper)">—</div>
+          <div style="color:var(--ink-dim);font-size:13px;margin-top:4px">Based on all booking start times</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ACTIVITY LOGS -->
+    <section class="page" id="page-logs">
+      <div class="page-header"><div><h2>Activity Logs</h2><div class="sub">System-wide audit trail</div></div></div>
+      <div class="card"><table><thead><tr><th>Action</th><th>Details</th><th>When</th></tr></thead><tbody id="logsTableBody"></tbody></table></div>
+    </section>
+
+  </main>
+</div>
+
+<!-- BOOKING SUCCESS / QR MODAL -->
+<div class="modal-backdrop" id="qrModalBackdrop">
+  <div class="modal">
+    <div class="modal-header"><h3>Booking Confirmed</h3><span class="x" id="qrModalClose">&times;</span></div>
+    <div class="qr-box">
+      <img id="qrModalImage" src="" alt="QR Code">
+      <div class="qr-ref" id="qrModalRef"></div>
+    </div>
+    <p style="font-size:12.5px;color:var(--ink-dim);margin-top:14px">Show this QR code (or your reference code) to the security guard at entry and exit.</p>
+    <button class="btn btn-primary btn-block" style="margin-top:8px" id="qrModalDoneBtn">Done</button>
+  </div>
+</div>
+
+<!-- ADD PROPERTY MODAL -->
+<div class="modal-backdrop" id="propModalBackdrop">
+  <div class="modal">
+    <div class="modal-header"><h3>Add Property</h3><span class="x" id="propModalClose">&times;</span></div>
+    <div class="field"><label>Name</label><input id="propName"></div>
+    <div class="field"><label>Type</label>
+      <select id="propType">
+        <option>Residential</option><option>Shopping Mall</option><option>Hospital</option>
+        <option>Office</option><option>College</option><option>Event Venue</option>
+      </select>
+    </div>
+    <div class="field"><label>City</label><input id="propCity" value="Ahmedabad"></div>
+    <div class="grid grid-2">
+      <div class="field"><label>Floors</label><input type="number" id="propFloors" value="1" min="1"></div>
+      <div class="field"><label>Slots per Floor</label><input type="number" id="propSlots" value="10" min="1"></div>
+    </div>
+    <button class="btn btn-primary btn-block" id="propSaveBtn">Create Property</button>
+  </div>
+</div>
+
+<!-- ADD USER MODAL -->
+<div class="modal-backdrop" id="userModalBackdrop">
+  <div class="modal">
+    <div class="modal-header"><h3>Add Staff User</h3><span class="x" id="userModalClose">&times;</span></div>
+    <div class="field"><label>Name</label><input id="newUserName"></div>
+    <div class="field"><label>Email</label><input id="newUserEmail"></div>
+    <div class="field"><label>Password</label><input id="newUserPassword" type="password"></div>
+    <div class="field"><label>Role</label>
+      <select id="newUserRole"><option value="property_manager">Property Manager</option><option value="security_guard">Security Guard</option><option value="super_admin">Super Admin</option></select>
+    </div>
+    <div class="field"><label>Property</label><select id="newUserProperty"></select></div>
+    <button class="btn btn-primary btn-block" id="userSaveBtn">Create User</button>
+  </div>
+</div>
+
+<div class="toast-stack" id="toastStack"></div>
+
+<script src="js/api.js"></script>
+<script src="js/dashboard.js"></script>
+</body>
+</html>
